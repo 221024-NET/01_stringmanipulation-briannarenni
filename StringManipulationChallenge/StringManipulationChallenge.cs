@@ -6,9 +6,9 @@ namespace StringManipulationChallenge
     {
         static void Main(string[] args)
         {
-
+            // Get user inputs
             Console.WriteLine("Please enter your message and press Enter: ");
-            string userInputString = Console.ReadLine();
+            string userInputString = StringTrim(Console.ReadLine());
 
             Console.WriteLine("Please enter a number LESS THAN the length of your string and press enter");
             int elementNum = Convert.ToInt32(Console.ReadLine());
@@ -19,12 +19,39 @@ namespace StringManipulationChallenge
             Console.WriteLine("Enter your last name: ");
             string lastName = Console.ReadLine();
 
-            string userFullName = $"{firstName}{lastName}";
+            string fullName = $"{firstName} {lastName}";
 
             Console.WriteLine("For which character should I search in your original message?");
             char userChar = Convert.ToChar(Console.ReadLine());
 
+            // Implement methods
+            string fullNameUpper = Program.StringToUpper(fullName);
+            string fullNameLower = Program.StringToLower(fullName);
 
+            Console.WriteLine("Here are your results!");
+            Console.WriteLine($"Full name: ");
+            Console.WriteLine(ConcatNames(firstName, lastName));
+            Console.WriteLine("\n");
+
+            Console.WriteLine($"Uppercase: ");
+            Console.WriteLine(StringToUpper(fullName));
+            Console.WriteLine("\n");
+             Console.WriteLine($"Lowercase: ");
+            Console.WriteLine(StringToLower(fullName));
+            Console.WriteLine("\n");
+
+            Console.WriteLine($"Your message was: ");
+            Console.WriteLine(userInputString);
+            Console.WriteLine("\n");
+
+            Console.WriteLine($"Substring: ");
+            Console.WriteLine(StringSubstring(userInputString, elementNum));
+            Console.WriteLine("\n");
+
+            Console.WriteLine($"You chose the char: {userChar}");
+            Console.WriteLine("Found at index: ");
+            Console.WriteLine(SearchChar(userInputString, userChar));
+            Console.WriteLine("\n");
 
         }
 
@@ -43,8 +70,7 @@ namespace StringManipulationChallenge
         // 2) print the result to the console and
         // 3) return the new string.
         public static string StringToLower(string x){
-            throw new NotImplementedException("StringToUpper method not implemented.");
-
+            return x.ToLower();
         }
 
         // This method has one string parameter.
@@ -53,7 +79,7 @@ namespace StringManipulationChallenge
         // 2) print the result to the console and
         // 3) return the new string.
         public static string StringTrim(string x){
-            throw new NotImplementedException("StringTrim method not implemented.");
+            return x.Trim();
 
         }
 
@@ -63,16 +89,15 @@ namespace StringManipulationChallenge
         // 2) print the result to the console and
         // 3) return the new string.
         public static string StringSubstring(string x, int elementNum){
-            throw new NotImplementedException("StringSubstring method not implemented.");
-
+            return x.Substring(0, elementNum);
         }
 
         // This method has two parameters, one string and one char.
         // It will:
         // 1) search the string parameter for the char parameter
         // 2) return the index of the char.
-        public static int SearchChar(string userInputString, char x){
-            throw new NotImplementedException("SearchChar method not implemented.");
+        public static int SearchChar(string userInputString, char x) {
+            return userInputString.IndexOf(x);
         }
 
         // This method has two string parameters.
@@ -80,7 +105,7 @@ namespace StringManipulationChallenge
         // 1) concatenate the two strings with a space between them.
         // 2) return the new string.
         public static string ConcatNames(string fName, string lName){
-            throw new NotImplementedException("ConcatNames method not implemented.");
+            return fName + " " + lName;
         }
 
 
